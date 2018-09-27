@@ -12,6 +12,18 @@
 		F464767521453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F464767321453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld */; };
 		F464767721453C9D00D86FF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F464767621453C9D00D86FF7 /* Assets.xcassets */; };
 		F464767A21453C9D00D86FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F464767821453C9D00D86FF7 /* LaunchScreen.storyboard */; };
+		F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */; };
+		F4A20B0C215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */; };
+		F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */; };
+		F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */; };
+		F4C4D7B7214AAA4800568749 /* ActionForPlans+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */; };
+		F4C4D7B8214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */; };
+		F4C4D7BB214AAA5C00568749 /* Skills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */; };
+		F4C4D7BC214AAA5C00568749 /* Skills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */; };
+		F4C4D7BF214AAA8100568749 /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */; };
+		F4C4D7C0214AAA8100568749 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */; };
+		F4C4D7C3214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */; };
+		F4C4D7C4214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,18 @@
 		F464767621453C9D00D86FF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F464767921453C9D00D86FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F464767B21453C9D00D86FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewController.swift; sourceTree = "<group>"; };
+		F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewCell.swift; sourceTree = "<group>"; };
+		F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
+		F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionForPlans+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionForPlans+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaysOfLearn+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaysOfLearn+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +78,11 @@
 		F464766B21453C9C00D86FF7 /* How can I learn it? */ = {
 			isa = PBXGroup;
 			children = (
-				F464766C21453C9C00D86FF7 /* AppDelegate.swift */,
+				F4C4D7A72147EAF100568749 /* ViewControllers */,
+				F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */,
+				F4C4D7A62147EAE200568749 /* Models */,
 				F464767021453C9C00D86FF7 /* Main.storyboard */,
+				F464766C21453C9C00D86FF7 /* AppDelegate.swift */,
 				F464767B21453C9D00D86FF7 /* Info.plist */,
 				F464767321453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld */,
 				F464768121453CAD00D86FF7 /* Resources */,
@@ -70,6 +97,79 @@
 				F464767821453C9D00D86FF7 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */,
+				F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */,
+			);
+			path = "Screen Of Ways Of Learning View Controllers";
+			sourceTree = "<group>";
+		};
+		F4C4D7A62147EAE200568749 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7AD214912B000568749 /* Model Of Skills */,
+				F4C4D7B42149133500568749 /* Model Of Action For Plans */,
+				F4C4D7B22149130000568749 /* Model Of Ways */,
+				F4C4D7B32149131C00568749 /* Model Of Tasks */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F4C4D7A72147EAF100568749 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7A82147EB1400568749 /* Screen of Skills View Controllers */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F4C4D7A82147EB1400568749 /* Screen of Skills View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */,
+				F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */,
+			);
+			path = "Screen of Skills View Controllers";
+			sourceTree = "<group>";
+		};
+		F4C4D7AD214912B000568749 /* Model Of Skills */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */,
+				F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */,
+			);
+			path = "Model Of Skills";
+			sourceTree = "<group>";
+		};
+		F4C4D7B22149130000568749 /* Model Of Ways */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */,
+				F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */,
+			);
+			path = "Model Of Ways";
+			sourceTree = "<group>";
+		};
+		F4C4D7B32149131C00568749 /* Model Of Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */,
+				F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */,
+			);
+			path = "Model Of Tasks";
+			sourceTree = "<group>";
+		};
+		F4C4D7B42149133500568749 /* Model Of Action For Plans */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */,
+				F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */,
+			);
+			path = "Model Of Action For Plans";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +243,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C4D7B8214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift in Sources */,
+				F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */,
+				F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */,
+				F4C4D7C0214AAA8100568749 /* Tasks+CoreDataProperties.swift in Sources */,
+				F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */,
+				F4C4D7B7214AAA4800568749 /* ActionForPlans+CoreDataClass.swift in Sources */,
+				F4C4D7C3214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift in Sources */,
 				F464766D21453C9C00D86FF7 /* AppDelegate.swift in Sources */,
 				F464767521453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld in Sources */,
+				F4C4D7BB214AAA5C00568749 /* Skills+CoreDataClass.swift in Sources */,
+				F4C4D7C4214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift in Sources */,
+				F4C4D7BF214AAA8100568749 /* Tasks+CoreDataClass.swift in Sources */,
+				F4A20B0C215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift in Sources */,
+				F4C4D7BC214AAA5C00568749 /* Skills+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
