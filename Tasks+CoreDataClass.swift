@@ -1,5 +1,5 @@
 //
-//  ActionForPlans+CoreDataClass.swift
+//  Tasks+CoreDataClass.swift
 //  How can I learn it?
 //
 //  Created by Вадим Игнатов on 9/30/18.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(ActionForPlans)
-public class ActionForPlans: NSManagedObject {
+@objc(Tasks)
+public class Tasks: NSManagedObject {
 
 }

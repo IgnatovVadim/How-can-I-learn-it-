@@ -17,8 +17,8 @@ extension ActionForPlans {
         return NSFetchRequest<ActionForPlans>(entityName: "ActionForPlans")
     }
 
-    @NSManaged public var number: Int64
     @NSManaged public var name: String?
+    @NSManaged public var number: Int64
     @NSManaged public var skill: Skills?
 
 }

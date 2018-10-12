@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4330211216F859800C621E8 /* Extension For NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4330210216F859800C621E8 /* Extension For NSManagedObject.swift */; };
 		F464766D21453C9C00D86FF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464766C21453C9C00D86FF7 /* AppDelegate.swift */; };
 		F464767221453C9C00D86FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F464767021453C9C00D86FF7 /* Main.storyboard */; };
 		F464767521453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F464767321453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld */; };
@@ -14,19 +15,23 @@
 		F464767A21453C9D00D86FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F464767821453C9D00D86FF7 /* LaunchScreen.storyboard */; };
 		F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */; };
 		F4A20B0C215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */; };
+		F4A20B1B216136A500AC50FC /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B13216136A500AC50FC /* Tasks+CoreDataClass.swift */; };
+		F4A20B1C216136A500AC50FC /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B14216136A500AC50FC /* Tasks+CoreDataProperties.swift */; };
+		F4A20B1D216136A500AC50FC /* WaysOfLearn+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B15216136A500AC50FC /* WaysOfLearn+CoreDataClass.swift */; };
+		F4A20B1E216136A500AC50FC /* WaysOfLearn+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B16216136A500AC50FC /* WaysOfLearn+CoreDataProperties.swift */; };
+		F4A20B21216136A500AC50FC /* Skills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B19216136A500AC50FC /* Skills+CoreDataClass.swift */; };
+		F4A20B22216136A500AC50FC /* Skills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B1A216136A500AC50FC /* Skills+CoreDataProperties.swift */; };
+		F4A20B3321613C7600AC50FC /* ActionForPlans+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B3121613C7600AC50FC /* ActionForPlans+CoreDataClass.swift */; };
+		F4A20B3421613C7600AC50FC /* ActionForPlans+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B3221613C7600AC50FC /* ActionForPlans+CoreDataProperties.swift */; };
 		F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */; };
 		F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */; };
-		F4C4D7B7214AAA4800568749 /* ActionForPlans+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */; };
-		F4C4D7B8214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */; };
-		F4C4D7BB214AAA5C00568749 /* Skills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */; };
-		F4C4D7BC214AAA5C00568749 /* Skills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */; };
-		F4C4D7BF214AAA8100568749 /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */; };
-		F4C4D7C0214AAA8100568749 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */; };
-		F4C4D7C3214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */; };
-		F4C4D7C4214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */; };
+		F4C7F9B1216BC34E008488FE /* Protocol Common Functions For Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B0216BC34E008488FE /* Protocol Common Functions For Controllers.swift */; };
+		F4C7F9B3216BC3AB008488FE /* Extension Common Function For Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B2216BC3AB008488FE /* Extension Common Function For Controllers.swift */; };
+		F4C7F9BA216DDB36008488FE /* Extension UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B9216DDB36008488FE /* Extension UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4330210216F859800C621E8 /* Extension For NSManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension For NSManagedObject.swift"; sourceTree = "<group>"; };
 		F464766921453C9C00D86FF7 /* How can I learn it?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "How can I learn it?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F464766C21453C9C00D86FF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F464767121453C9C00D86FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,16 +41,19 @@
 		F464767B21453C9D00D86FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewController.swift; sourceTree = "<group>"; };
 		F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewCell.swift; sourceTree = "<group>"; };
+		F4A20B13216136A500AC50FC /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataClass.swift"; path = "../../../Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4A20B14216136A500AC50FC /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "../../../Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4A20B15216136A500AC50FC /* WaysOfLearn+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WaysOfLearn+CoreDataClass.swift"; path = "../../../WaysOfLearn+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4A20B16216136A500AC50FC /* WaysOfLearn+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WaysOfLearn+CoreDataProperties.swift"; path = "../../../WaysOfLearn+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4A20B19216136A500AC50FC /* Skills+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4A20B1A216136A500AC50FC /* Skills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4A20B3121613C7600AC50FC /* ActionForPlans+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActionForPlans+CoreDataClass.swift"; path = "../../../ActionForPlans+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F4A20B3221613C7600AC50FC /* ActionForPlans+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActionForPlans+CoreDataProperties.swift"; path = "../../../ActionForPlans+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
 		F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
-		F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionForPlans+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionForPlans+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Skills+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaysOfLearn+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaysOfLearn+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4C7F9B0216BC34E008488FE /* Protocol Common Functions For Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol Common Functions For Controllers.swift"; sourceTree = "<group>"; };
+		F4C7F9B2216BC3AB008488FE /* Extension Common Function For Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension Common Function For Controllers.swift"; sourceTree = "<group>"; };
+		F4C7F9B9216DDB36008488FE /* Extension UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +86,9 @@
 		F464766B21453C9C00D86FF7 /* How can I learn it? */ = {
 			isa = PBXGroup;
 			children = (
+				F4A20B102160FDB500AC50FC /* Extensions */,
+				F4A20B0D2160FD0900AC50FC /* Protocols */,
 				F4C4D7A72147EAF100568749 /* ViewControllers */,
-				F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */,
 				F4C4D7A62147EAE200568749 /* Models */,
 				F464767021453C9C00D86FF7 /* Main.storyboard */,
 				F464766C21453C9C00D86FF7 /* AppDelegate.swift */,
@@ -108,6 +117,24 @@
 			path = "Screen Of Ways Of Learning View Controllers";
 			sourceTree = "<group>";
 		};
+		F4A20B0D2160FD0900AC50FC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F4C7F9B0216BC34E008488FE /* Protocol Common Functions For Controllers.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F4A20B102160FDB500AC50FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4C7F9B9216DDB36008488FE /* Extension UIViewController.swift */,
+				F4C7F9B2216BC3AB008488FE /* Extension Common Function For Controllers.swift */,
+				F4330210216F859800C621E8 /* Extension For NSManagedObject.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F4C4D7A62147EAE200568749 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F4C4D7A82147EB1400568749 /* Screen of Skills View Controllers */,
+				F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -139,8 +167,8 @@
 		F4C4D7AD214912B000568749 /* Model Of Skills */ = {
 			isa = PBXGroup;
 			children = (
-				F4C4D7B9214AAA5C00568749 /* Skills+CoreDataClass.swift */,
-				F4C4D7BA214AAA5C00568749 /* Skills+CoreDataProperties.swift */,
+				F4A20B19216136A500AC50FC /* Skills+CoreDataClass.swift */,
+				F4A20B1A216136A500AC50FC /* Skills+CoreDataProperties.swift */,
 			);
 			path = "Model Of Skills";
 			sourceTree = "<group>";
@@ -148,8 +176,8 @@
 		F4C4D7B22149130000568749 /* Model Of Ways */ = {
 			isa = PBXGroup;
 			children = (
-				F4C4D7C1214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift */,
-				F4C4D7C2214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift */,
+				F4A20B15216136A500AC50FC /* WaysOfLearn+CoreDataClass.swift */,
+				F4A20B16216136A500AC50FC /* WaysOfLearn+CoreDataProperties.swift */,
 			);
 			path = "Model Of Ways";
 			sourceTree = "<group>";
@@ -157,8 +185,8 @@
 		F4C4D7B32149131C00568749 /* Model Of Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				F4C4D7BD214AAA8100568749 /* Tasks+CoreDataClass.swift */,
-				F4C4D7BE214AAA8100568749 /* Tasks+CoreDataProperties.swift */,
+				F4A20B13216136A500AC50FC /* Tasks+CoreDataClass.swift */,
+				F4A20B14216136A500AC50FC /* Tasks+CoreDataProperties.swift */,
 			);
 			path = "Model Of Tasks";
 			sourceTree = "<group>";
@@ -166,8 +194,8 @@
 		F4C4D7B42149133500568749 /* Model Of Action For Plans */ = {
 			isa = PBXGroup;
 			children = (
-				F4C4D7B5214AAA4800568749 /* ActionForPlans+CoreDataClass.swift */,
-				F4C4D7B6214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift */,
+				F4A20B3121613C7600AC50FC /* ActionForPlans+CoreDataClass.swift */,
+				F4A20B3221613C7600AC50FC /* ActionForPlans+CoreDataProperties.swift */,
 			);
 			path = "Model Of Action For Plans";
 			sourceTree = "<group>";
@@ -243,20 +271,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4C4D7B8214AAA4800568749 /* ActionForPlans+CoreDataProperties.swift in Sources */,
+				F4A20B3421613C7600AC50FC /* ActionForPlans+CoreDataProperties.swift in Sources */,
 				F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */,
 				F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */,
-				F4C4D7C0214AAA8100568749 /* Tasks+CoreDataProperties.swift in Sources */,
+				F4C7F9B1216BC34E008488FE /* Protocol Common Functions For Controllers.swift in Sources */,
+				F4C7F9B3216BC3AB008488FE /* Extension Common Function For Controllers.swift in Sources */,
+				F4A20B1C216136A500AC50FC /* Tasks+CoreDataProperties.swift in Sources */,
 				F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */,
-				F4C4D7B7214AAA4800568749 /* ActionForPlans+CoreDataClass.swift in Sources */,
-				F4C4D7C3214AAA9000568749 /* WaysOfLearn+CoreDataClass.swift in Sources */,
+				F4A20B21216136A500AC50FC /* Skills+CoreDataClass.swift in Sources */,
+				F4A20B1D216136A500AC50FC /* WaysOfLearn+CoreDataClass.swift in Sources */,
+				F4A20B22216136A500AC50FC /* Skills+CoreDataProperties.swift in Sources */,
 				F464766D21453C9C00D86FF7 /* AppDelegate.swift in Sources */,
+				F4330211216F859800C621E8 /* Extension For NSManagedObject.swift in Sources */,
 				F464767521453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld in Sources */,
-				F4C4D7BB214AAA5C00568749 /* Skills+CoreDataClass.swift in Sources */,
-				F4C4D7C4214AAA9000568749 /* WaysOfLearn+CoreDataProperties.swift in Sources */,
-				F4C4D7BF214AAA8100568749 /* Tasks+CoreDataClass.swift in Sources */,
+				F4A20B1E216136A500AC50FC /* WaysOfLearn+CoreDataProperties.swift in Sources */,
+				F4C7F9BA216DDB36008488FE /* Extension UIViewController.swift in Sources */,
+				F4A20B3321613C7600AC50FC /* ActionForPlans+CoreDataClass.swift in Sources */,
+				F4A20B1B216136A500AC50FC /* Tasks+CoreDataClass.swift in Sources */,
 				F4A20B0C215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift in Sources */,
-				F4C4D7BC214AAA5C00568749 /* Skills+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

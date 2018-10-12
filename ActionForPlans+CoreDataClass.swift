@@ -1,5 +1,5 @@
 //
-//  Skills+CoreDataClass.swift
+//  ActionForPlans+CoreDataClass.swift
 //  How can I learn it?
 //
 //  Created by Вадим Игнатов on 9/30/18.
@@ -11,8 +11,8 @@ import Foundation
 import CoreData
 import UIKit
 
-@objc(Skills)
-public class Skills: NSManagedObject{
+@objc(ActionForPlans)
+public class ActionForPlans: NSManagedObject {
 
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -21,7 +21,7 @@ public class Skills: NSManagedObject{
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
-    static func fetchDataFromDatabase() -> [Skills]
+    static func fetchDataFromDatabase() -> [ActionForPlans]
     {
         do
         {
@@ -33,9 +33,9 @@ public class Skills: NSManagedObject{
         }
     }
     
-    static func deleteFromContext(that skill: Skills)
+    static func deleteFromContext(that actionForPlan: ActionForPlans)
     {
-        context.delete(skill)
+        context.delete(actionForPlan)
     }
     
 }
