@@ -12,7 +12,14 @@ import CoreData
 
 protocol commonFunctionsForControllers
 {
-    func uiAlertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String, indexPath: IndexPath?, createOrEditObjectWith: @escaping (String, IndexPath?) -> Void) -> (UIAlertController)
+    func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String, createOrEditObjectWithClosure: @escaping (String) -> Void) -> (UIAlertController)
     
-    func sort(first: NSManagedObject)
+    func sorting(massive: inout [ThingsForDevelopment])
+    
+    func reorderObjects(in massiveOfObjects: inout [ThingsForDevelopment], fromRow: Int, toRow: Int, isDelete: Bool)
+    
+    func deleteObject(from massiveOfObjects: inout [ThingsForDevelopment], with indexPath: IndexPath)
+    
+    func switchOnOrOffEditingObjects(in tableView: inout UITableView)
+    
 }

@@ -11,77 +11,76 @@ import CoreData
 
 class SkillsTableViewController: UITableViewController, commonFunctionsForControllers {
     
-    var skills: [Skills] = []
+    var skills: [ThingsForDevelopment] = []
+    let entity = NSEntityDescription.entity(forEntityName: entityName.skills.rawValue, in: Skills.context)!
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        skills = Skills.fetchDataFromDatabase().sorted(by: {(firstElement: Skills, secondElement: Skills) -> Bool in
-            return firstElement.number < secondElement.number
-        })
+        skills = Skills.fetchDataFromDatabase(entity: entityName.skills.rawValue)
         
-        sort(first: skills[0])
+        sorting(massive: &skills)
         
     }
-    
     
     @IBAction func editSkillsButton(_ sender: UIBarButtonItem)
     {
-        let isEditing = tableView.isEditing
+        switchOnOrOffEditingObjects(in: &self.tableView)
+    }
+    
+    func editSkill(currentNameOfSkill: String, indexPath: IndexPath?)
+    {
+        let funcForEditSkillwith = { (newNameOfObject: String) -> Void in
+            
+            self.skills[indexPath!.row].name = newNameOfObject
+            
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+            
+            self.saveData()
+            
+        }
         
-        tableView.setEditing(!isEditing, animated: true)
+        let alertForEditSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, String(entityName.skills.rawValue.dropLast())), currentNameOfObject: currentNameOfSkill, createOrEditObjectWithClosure: funcForEditSkillwith)
+        
+        present(alertForEditSkill, animated: true, completion: nil)
         
     }
     
-    func enterNameOfSkill(isNewNameExist: Bool, currentNameOfSkill: String = "", indexPath: IndexPath?)
+    func createNewSkill()
     {
-        let createOrEditTextOfAlert: String = !isNewNameExist ? CreateOrEditObjectInAlert.create.rawValue : CreateOrEditObjectInAlert.edit.rawValue
-        
-        // Closure to create or edit an object of class Skill for send to extension "common functions for controllers" in a function that return UIAlert
-        let funcForAlertToCreateOrEditObjectOfSkillWith = { (newNameOfObject: String, indexPath: IndexPath?) -> Void in
+        // Closure to create an object of class Skill for send to extension "common functions for controllers" in a function that return UIAlert
+        let funcForCreateNewSkillWith = { (newNameOfObject: String) -> Void in
             
-            if (!isNewNameExist)
-            {
-                let skill = Skills(context: Skills.context)
-                self.skills.append(skill)
-                self.skills[self.skills.count - 1].name = newNameOfObject
-                self.skills[self.skills.count - 1].number = Int64(self.skills.count)
-                self.tableView.reloadData()
-            }
-            else
-            {
-                self.skills[(indexPath?.row)!].name = newNameOfObject
-                self.tableView.reloadRows(at: [indexPath!], with: .automatic)
-            }
+            let skill = Skills(name: newNameOfObject, number: Int64(self.skills.count + 1), entity: self.entity, insertInto: Skills.context)
+            self.skills.append(skill)
+            
+            self.tableView.reloadData()
+            
             self.saveData()
         }
         
-        let alertForAddOrEditSkill = uiAlertForAddingAndEditingtObjectWith(titleOfAlert: (createOrEditTextOfAlert, "Skill"), currentNameOfObject: currentNameOfSkill, indexPath: indexPath, createOrEditObjectWith: funcForAlertToCreateOrEditObjectOfSkillWith)
+        let alertForCreateSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, String(entityName.skills.rawValue.dropLast())), createOrEditObjectWithClosure: funcForCreateNewSkillWith)
         
-        present(alertForAddOrEditSkill, animated: true)
+        present(alertForCreateSkill, animated: true)
         
     }
     
     @IBAction func addNewSkill(_ sender: UIBarButtonItem) {
-        enterNameOfSkill(isNewNameExist: false, indexPath: nil)
+        createNewSkill()
     }
     
-    @objc func editingNameOfSkill(longPress: UILongPressGestureRecognizer)
+    @objc func editSkill(longPress: UILongPressGestureRecognizer)
     {
         tableView.setEditing(false, animated: true)
         
         let cell = longPress.view as! SkillsTableViewCell
-        let indexPath = tableView.indexPath(for: cell)!
-        
-        let skill = skills[indexPath.row]
-        
-        enterNameOfSkill(isNewNameExist: true, currentNameOfSkill: skill.name!, indexPath: indexPath)
-    }
-    
-    func saveData()
-    {
-        Skills.saveDataToDataBase()
+        if let indexPath = tableView.indexPath(for: cell)
+        {
+            let skill = skills[indexPath.row]
+            
+            editSkill(currentNameOfSkill: skill.name!, indexPath: indexPath)
+        }
     }
     
     override func viewDidLoad() {
@@ -92,8 +91,6 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -108,10 +105,11 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
         
         let skill = skills[indexPath.row]
         
-        let longPressGestureForEditingNameOfSkill = UILongPressGestureRecognizer(target: self, action: #selector(editingNameOfSkill(longPress: )))
+        let longPressGestureForEditingNameOfSkill = UILongPressGestureRecognizer(target: self, action: #selector(editSkill(longPress: )))
+        longPressGestureForEditingNameOfSkill.minimumPressDuration = 0.7
         cell.addGestureRecognizer(longPressGestureForEditingNameOfSkill)
         
-        cell.nameOfSkill.text! = ("\(skill.name!)")
+        cell.nameOfSkill.text! = ("\(skill.name!) + \(skill.number)")
         
         return cell
     }
@@ -125,15 +123,13 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            let skill = skills.remove(at: indexPath.row)
+            deleteObject(from: &skills, with: indexPath)
             
-            Skills.deleteFromContext(that: skill)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            reorderObjects(in: &skills, fromRow: indexPath.row, toRow: skills.count, isDelete: true)
             
             tableView.reloadData()
             
-            editSkillsNumber(for: &skills, fromRow: indexPath.row, toRow: skills.count)
+            saveData()
             
         } else if editingStyle == .insert {
             
@@ -142,28 +138,23 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to:IndexPath)
-    {
-        let skill = skills.remove(at: fromIndexPath.row)
-        skill.number = Int64(to.row + 1)
-        skills.insert(skill, at: to.row)
-        editSkillsNumber(for: &skills, fromRow: fromIndexPath.row, toRow: to.row)
+    {        
+        reorderObjects(in: &skills, fromRow: fromIndexPath.row, toRow: to.row, isDelete: false)
+        
         tableView.reloadData()
+        
+        saveData()
     }
     
     
-    func editSkillsNumber(for skills: inout [Skills], fromRow: Int, toRow: Int)
-    {
-        let numberOfEditingSkills = abs(fromRow - toRow)
-        if (numberOfEditingSkills > 0)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationController = segue.destination as? UINavigationController
         {
-            let minIndex = fromRow < toRow ? fromRow : toRow + 1
-            for i in minIndex..<(minIndex + numberOfEditingSkills)
+            if let destination = navigationController.topViewController as? WaysOfLearningTableViewController
             {
-                skills[i].number = Int64(i + 1)
+                destination.skill = skills[tableView.indexPathForSelectedRow!.row] as? Skills
             }
         }
-        
-        saveData()
     }
     
     // MARK: - Navigation

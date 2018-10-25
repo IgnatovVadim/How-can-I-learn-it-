@@ -9,9 +9,19 @@
 import UIKit
 import CoreData
 
-class WaysOfLearningTableViewController: UITableViewController {
+class WaysOfLearningTableViewController: UITableViewController, commonFunctionsForControllers {
     
-    var ways = [WaysOfLearn]()
+    var ways: [ThingsForDevelopment] = []
+    var skill: Skills?
+    var entity = NSEntityDescription.entity(forEntityName: entityName.ways.rawValue, in: WaysOfLearn.context)!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ways = WaysOfLearn.fetchDataFromDataBase(skill: skill!)
+        
+        sorting(massive: &ways)
+    }
     
     @objc func backToScreenOfSkills()
     {
@@ -20,25 +30,49 @@ class WaysOfLearningTableViewController: UITableViewController {
             
         }
     }
-
-    @IBAction func edit(_ sender: UIBarButtonItem)
+    
+    @IBAction func isEditingButton(_ sender: UIBarButtonItem)
     {
-        let isEditing = tableView.isEditing
-        
-        tableView.setEditing(!isEditing, animated: true)
+        switchOnOrOffEditingObjects(in: &tableView)
     }
     
-    func addNewWay(nameOfWay: String = "", indexPath: IndexPath?)
+    func editWay(currentNameOfWay: String, indexPath: IndexPath?)
     {
+        let editWay = { (newNameOfObject: String) -> Void in
+            
+            self.ways[indexPath!.row].name = newNameOfObject
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+            self.saveData()
+        }
+        
+        let alertForEditWay = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, entityName.ways.rawValue), currentNameOfObject: currentNameOfWay, createOrEditObjectWithClosure: editWay)
+        
+        present(alertForEditWay, animated: true, completion: nil)
+        
+    }
+    
+    func createNewWay()
+    {
+        
+        let createNewWay = { (newNameOfObject: String) -> Void in
+            
+            let way = WaysOfLearn(name: newNameOfObject, number: Int64(self.ways.count + 1), entity: self.entity, context: WaysOfLearn.context, skill: self.skill!)
+            
+            self.ways.append(way)
+            self.tableView.reloadData()
+            self.saveData()
+            
+        }
+        
+        let alertForCreateWay = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, entityName.ways.rawValue), createOrEditObjectWithClosure: createNewWay)
+        
+        present(alertForCreateWay, animated: true, completion: nil)
         
     }
     
     @IBAction func addNewWay(_ sender: UIBarButtonItem)
     {
-        let way = WaysOfLearn(context: WaysOfLearn.context)
-        
-        ways.append(way)
-        
+        createNewWay()
     }
     
     
@@ -72,6 +106,17 @@ class WaysOfLearningTableViewController: UITableViewController {
         return 1
     }
     
+    @objc func editingWay(longPress: UILongPressGestureRecognizer)
+    {
+        tableView.setEditing(false, animated: true)
+        
+        let cell = longPress.view as! WaysOfLearningTableViewCell
+        if let indexPath = tableView.indexPath(for: cell)
+        {
+            let way = ways[indexPath.row]
+            editWay(currentNameOfWay: way.name!, indexPath: indexPath)
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -84,8 +129,14 @@ class WaysOfLearningTableViewController: UITableViewController {
         else
         {
             cell = tableView.dequeueReusableCell(withIdentifier: "DynamicCell", for: indexPath) as! WaysOfLearningTableViewCell
-            cell.label1.text = "a"
-            cell.label2.text = "b"
+            
+            let way = ways[indexPath.row]
+            
+            let longPressGestureForEditingWay = UILongPressGestureRecognizer(target: self, action: #selector(editingWay(longPress:)))
+            longPressGestureForEditingWay.minimumPressDuration = 0.7
+            cell.addGestureRecognizer(longPressGestureForEditingWay)
+            
+            cell.nameOfWay.text = "\(way.name!) + \(way.number) "
         }
         
         return cell
@@ -100,24 +151,43 @@ class WaysOfLearningTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            if (indexPath.section != 0)
+            {
+                deleteObject(from: &ways, with: indexPath)
+                
+                reorderObjects(in: &ways, fromRow: indexPath.row, toRow: ways.count, isDelete: true)
+                
+                tableView.reloadData()
+                
+                saveData()
+            }
+            
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        
+        if (fromIndexPath.section != 0)
+        {
+            reorderObjects(in: &ways, fromRow: fromIndexPath.row, toRow: to.row, isDelete: false)
+            saveData()
+        }
+
+        tableView.reloadData()
+    }
+    
     
     /*
      // Override to support conditional rearranging of the table view.

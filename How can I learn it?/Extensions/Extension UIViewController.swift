@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension UIViewController
 {
@@ -15,5 +16,14 @@ extension UIViewController
     {
         case create = "Creating A New"
         case edit = "Editing Name Of The"
+    }
+}
+
+extension UIViewController
+{
+    enum entityName : String
+    {
+        case skills = "Skills"
+        case ways = "WaysOfLearn"
     }
 }
