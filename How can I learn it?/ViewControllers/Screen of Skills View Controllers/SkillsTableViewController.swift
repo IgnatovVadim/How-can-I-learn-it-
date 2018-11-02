@@ -11,22 +11,24 @@ import CoreData
 
 class SkillsTableViewController: UITableViewController, commonFunctionsForControllers {
     
+    @IBOutlet weak var editButtonLabel: UIBarButtonItem!
+    
     var skills: [ThingsForDevelopment] = []
-    let entity = NSEntityDescription.entity(forEntityName: entityName.skills.rawValue, in: Skills.context)!
+    let entity = NSEntityDescription.entity(forEntityName: EntityName.skills.rawValue, in: Skills.context)!
     
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        skills = Skills.fetchDataFromDatabase(entity: entityName.skills.rawValue)
+        skills = Skills.fetchDataFromDatabase(entity: EntityName.skills.rawValue)
         
         sorting(massive: &skills)
-        
     }
     
-    @IBAction func editSkillsButton(_ sender: UIBarButtonItem)
+    @IBAction func editMode(_ sender: UIBarButtonItem)
     {
-        switchOnOrOffEditingObjects(in: &self.tableView)
+        var editButton = sender
+        switchOnOrOffEditingMode(in: &tableView, with: &editButton)
     }
     
     func editSkill(currentNameOfSkill: String, indexPath: IndexPath?)
@@ -41,7 +43,7 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
             
         }
         
-        let alertForEditSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, String(entityName.skills.rawValue.dropLast())), currentNameOfObject: currentNameOfSkill, createOrEditObjectWithClosure: funcForEditSkillwith)
+        let alertForEditSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, NameOfObjectInAlert.skills.rawValue), currentNameOfObject: currentNameOfSkill, createOrEditObjectWithClosure: funcForEditSkillwith)
         
         present(alertForEditSkill, animated: true, completion: nil)
         
@@ -60,7 +62,7 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
             self.saveData()
         }
         
-        let alertForCreateSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, String(entityName.skills.rawValue.dropLast())), createOrEditObjectWithClosure: funcForCreateNewSkillWith)
+        let alertForCreateSkill = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, NameOfObjectInAlert.skills.rawValue), createOrEditObjectWithClosure: funcForCreateNewSkillWith)
         
         present(alertForCreateSkill, animated: true)
         
@@ -70,11 +72,11 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
         createNewSkill()
     }
     
-    @objc func editSkill(longPress: UILongPressGestureRecognizer)
+    @objc func editingSkill(longPressGesture: UILongPressGestureRecognizer)
     {
         tableView.setEditing(false, animated: true)
         
-        let cell = longPress.view as! SkillsTableViewCell
+        let cell = longPressGesture.view as! SkillsTableViewCell
         if let indexPath = tableView.indexPath(for: cell)
         {
             let skill = skills[indexPath.row]
@@ -93,23 +95,42 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return skills.count
+        
+        if (section == 1)
+        {
+            return skills.count
+        }
+        
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SkillsTableViewCell
         
-        let skill = skills[indexPath.row]
+        var cell: SkillsTableViewCell
         
-        let longPressGestureForEditingNameOfSkill = UILongPressGestureRecognizer(target: self, action: #selector(editSkill(longPress: )))
-        longPressGestureForEditingNameOfSkill.minimumPressDuration = 0.7
-        cell.addGestureRecognizer(longPressGestureForEditingNameOfSkill)
-        
-        cell.nameOfSkill.text! = ("\(skill.name!) + \(skill.number)")
+        if (indexPath.section == 0)
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "CellForNameOfTable", for: indexPath) as! SkillsTableViewCell
+        }
+        else
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SkillsTableViewCell
+            
+            let skill = skills[indexPath.row]
+            
+            let longPressGestureForEditingNameOfSkill = UILongPressGestureRecognizer(target: self, action: #selector(editingSkill(longPressGesture:)))
+            longPressGestureForEditingNameOfSkill.minimumPressDuration = 0.7
+            cell.addGestureRecognizer(longPressGestureForEditingNameOfSkill)
+            cell.nameOfSkill.text! = "\(skill.name!)"
+            cell.viewForCell.layer.borderColor = UIColor.black.cgColor
+            cell.viewForCell.layer.borderWidth = 1
+            cell.viewForCell.layer.cornerRadius = 5
+            
+        }
         
         return cell
     }
@@ -152,17 +173,31 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
         {
             if let destination = navigationController.topViewController as? WaysOfLearningTableViewController
             {
-                destination.skill = skills[tableView.indexPathForSelectedRow!.row] as? Skills
+                let skill = skills[tableView.indexPathForSelectedRow!.row] as? Skills
+                destination.skill = skill
             }
         }
     }
     
-    // MARK: - Navigation
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        if (indexPath.section == 1)
+        {
+            return true
+        }
+        
+        return false
+        
+    }
     
-    /*// In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool
+    {
+        if (indexPath.section == 1)
+        {
+            return true
+        }
+        
+        return false
+    }
+    
 }

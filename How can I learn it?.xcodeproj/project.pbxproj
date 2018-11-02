@@ -16,6 +16,11 @@
 		F464767A21453C9D00D86FF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F464767821453C9D00D86FF7 /* LaunchScreen.storyboard */; };
 		F46972A72178C6F00084A77E /* Model Of Actions For Plans.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46972A62178C6F00084A77E /* Model Of Actions For Plans.swift */; };
 		F46972A92178C6FC0084A77E /* Model Of Ways.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46972A82178C6FC0084A77E /* Model Of Ways.swift */; };
+		F4697320218206E20084A77E /* ActionsForPlansTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469731F218206E20084A77E /* ActionsForPlansTableViewController.swift */; };
+		F46E44C321883BB900240BAA /* ActionsForPlansTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E44C221883BB900240BAA /* ActionsForPlansTableViewCell.swift */; };
+		F46E44C621889CFC00240BAA /* Model Of Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E44C521889CFC00240BAA /* Model Of Task.swift */; };
+		F46E44C821889E9500240BAA /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E44C721889E9500240BAA /* TasksTableViewController.swift */; };
+		F46E44CA21889EA000240BAA /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46E44C921889EA000240BAA /* TasksTableViewCell.swift */; };
 		F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */; };
 		F4A20B0C215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */; };
 		F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */; };
@@ -37,6 +42,11 @@
 		F464767B21453C9D00D86FF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46972A62178C6F00084A77E /* Model Of Actions For Plans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Of Actions For Plans.swift"; sourceTree = "<group>"; };
 		F46972A82178C6FC0084A77E /* Model Of Ways.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Of Ways.swift"; sourceTree = "<group>"; };
+		F469731F218206E20084A77E /* ActionsForPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsForPlansTableViewController.swift; sourceTree = "<group>"; };
+		F46E44C221883BB900240BAA /* ActionsForPlansTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsForPlansTableViewCell.swift; sourceTree = "<group>"; };
+		F46E44C521889CFC00240BAA /* Model Of Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model Of Task.swift"; sourceTree = "<group>"; };
+		F46E44C721889E9500240BAA /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		F46E44C921889EA000240BAA /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		F4A20B09215D16F200AC50FC /* WaysOfLearningTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewController.swift; sourceTree = "<group>"; };
 		F4A20B0B215D16FE00AC50FC /* WaysOfLearningTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaysOfLearningTableViewCell.swift; sourceTree = "<group>"; };
 		F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +116,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F469731E218206A20084A77E /* Screen Of Action For Plans */ = {
+			isa = PBXGroup;
+			children = (
+				F469731F218206E20084A77E /* ActionsForPlansTableViewController.swift */,
+				F46E44C221883BB900240BAA /* ActionsForPlansTableViewCell.swift */,
+			);
+			path = "Screen Of Action For Plans";
+			sourceTree = "<group>";
+		};
+		F46E44C421889B1800240BAA /* Screen Of Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				F46E44C721889E9500240BAA /* TasksTableViewController.swift */,
+				F46E44C921889EA000240BAA /* TasksTableViewCell.swift */,
+			);
+			path = "Screen Of Tasks";
+			sourceTree = "<group>";
+		};
 		F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,19 +175,21 @@
 		F4C4D7A72147EAF100568749 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F4C4D7A82147EB1400568749 /* Screen of Skills View Controllers */,
+				F4C4D7A82147EB1400568749 /* Screen Of Skills View Controllers */,
 				F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */,
+				F469731E218206A20084A77E /* Screen Of Action For Plans */,
+				F46E44C421889B1800240BAA /* Screen Of Tasks */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F4C4D7A82147EB1400568749 /* Screen of Skills View Controllers */ = {
+		F4C4D7A82147EB1400568749 /* Screen Of Skills View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F4C4D7A92147EBB200568749 /* SkillsTableViewController.swift */,
 				F4C4D7AB2147EBC200568749 /* SkillsTableViewCell.swift */,
 			);
-			path = "Screen of Skills View Controllers";
+			path = "Screen Of Skills View Controllers";
 			sourceTree = "<group>";
 		};
 		F4C4D7AD214912B000568749 /* Model Of Skills */ = {
@@ -181,6 +211,7 @@
 		F4C4D7B32149131C00568749 /* Model Of Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				F46E44C521889CFC00240BAA /* Model Of Task.swift */,
 			);
 			path = "Model Of Tasks";
 			sourceTree = "<group>";
@@ -265,13 +296,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F46972A92178C6FC0084A77E /* Model Of Ways.swift in Sources */,
+				F46E44C821889E9500240BAA /* TasksTableViewController.swift in Sources */,
 				F43302162170C47600C621E8 /* Model Of Skills.swift in Sources */,
+				F46E44C321883BB900240BAA /* ActionsForPlansTableViewCell.swift in Sources */,
 				F4C4D7AA2147EBB200568749 /* SkillsTableViewController.swift in Sources */,
 				F4A20B0A215D16F200AC50FC /* WaysOfLearningTableViewController.swift in Sources */,
+				F4697320218206E20084A77E /* ActionsForPlansTableViewController.swift in Sources */,
 				F4C7F9B1216BC34E008488FE /* Protocol Common Functions For Controllers.swift in Sources */,
+				F46E44C621889CFC00240BAA /* Model Of Task.swift in Sources */,
 				F4C7F9B3216BC3AB008488FE /* Extension Protocol Common Function For Controllers.swift in Sources */,
 				F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */,
 				F46972A72178C6F00084A77E /* Model Of Actions For Plans.swift in Sources */,
+				F46E44CA21889EA000240BAA /* TasksTableViewCell.swift in Sources */,
 				F464766D21453C9C00D86FF7 /* AppDelegate.swift in Sources */,
 				F43302142170C29200C621E8 /* Model Of ThingsForDevelopment.swift in Sources */,
 				F464767521453C9C00D86FF7 /* How_can_I_learn_it_.xcdatamodeld in Sources */,

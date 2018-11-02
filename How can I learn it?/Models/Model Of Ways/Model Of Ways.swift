@@ -23,22 +23,4 @@ class WaysOfLearn : ThingsForDevelopment
         self.number = number
         self.skill = skill
     }
-    
-    static func fetchDataFromDataBase(skill: Skills) -> [WaysOfLearn]
-    {
-        let request = NSFetchRequest<WaysOfLearn>(entityName: "WaysOfLearn")
-        
-        let predicate = NSPredicate(format: "%K = %@", "skill", skill)
-        
-        request.predicate = predicate
-        
-        do
-        {
-            return try ThingsForDevelopment.context.fetch(request)
-        }
-        catch
-        {
-            return []
-        }
-    }
 }

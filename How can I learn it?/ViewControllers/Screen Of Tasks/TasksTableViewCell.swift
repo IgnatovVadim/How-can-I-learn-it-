@@ -1,16 +1,18 @@
 //
-//  SkillsTableViewCell.swift
+//  TasksTableViewCell.swift
 //  How can I learn it?
 //
-//  Created by Вадим Игнатов on 9/11/18.
+//  Created by Вадим Игнатов on 10/30/18.
 //  Copyright © 2018 Вадим Игнатов. All rights reserved.
 //
 
 import UIKit
 
-class SkillsTableViewCell: UITableViewCell {
+class TasksTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameOfSkill: UILabel!
+    @IBOutlet weak var nameOfTask: UILabel!
+    @IBOutlet weak var additionalInformation: UILabel!
+    
     @IBOutlet weak var viewForCell: UIView!
     
     override func awakeFromNib() {

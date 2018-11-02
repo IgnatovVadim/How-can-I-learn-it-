@@ -26,11 +26,29 @@ class ThingsForDevelopment : NSManagedObject
     
     static func fetchDataFromDatabase(entity: String) -> [ThingsForDevelopment]
     {
-        let fetch = NSFetchRequest<ThingsForDevelopment>(entityName: entity)
+        let request = NSFetchRequest<ThingsForDevelopment>(entityName: entity)
         
         do
         {
-            return try context.fetch(fetch)
+            return try context.fetch(request)
+        }
+        catch
+        {
+            return []
+        }
+    }
+    
+    static func fetchDataFromDataBase(entity: String, skill: Skills) -> [ThingsForDevelopment]
+    {
+        let request = NSFetchRequest<ThingsForDevelopment>(entityName: entity)
+        
+        let predicate = NSPredicate(format: "%K = %@", "skill", skill)
+        
+        request.predicate = predicate
+        
+        do
+        {
+            return try ThingsForDevelopment.context.fetch(request)
         }
         catch
         {

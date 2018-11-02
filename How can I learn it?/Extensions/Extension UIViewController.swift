@@ -21,9 +21,22 @@ extension UIViewController
 
 extension UIViewController
 {
-    enum entityName : String
+    enum EntityName : String
     {
         case skills = "Skills"
-        case ways = "WaysOfLearn"
+        case waysOfLearn = "WaysOfLearn"
+        case actionsForPlans = "ActionsForPlans"
+        case tasks = "Tasks"
+    }
+}
+
+extension UIViewController
+{
+    enum NameOfObjectInAlert : String
+    {
+        case skills = "Skill"
+        case waysOfLearn = "Way"
+        case actionsForPlans = "Action"
+        case tasks = "Task"
     }
 }

@@ -12,6 +12,9 @@ class WaysOfLearningTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameOfWay: UILabel!
     
+    @IBOutlet weak var viewForLabelThePlan: UIView!
+    @IBOutlet weak var viewForLabel: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

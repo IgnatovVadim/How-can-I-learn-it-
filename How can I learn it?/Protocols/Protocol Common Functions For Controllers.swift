@@ -20,6 +20,5 @@ protocol commonFunctionsForControllers
     
     func deleteObject(from massiveOfObjects: inout [ThingsForDevelopment], with indexPath: IndexPath)
     
-    func switchOnOrOffEditingObjects(in tableView: inout UITableView)
-    
+    func switchOnOrOffEditingMode(in tableView: inout UITableView, with editButton: inout UIBarButtonItem)
 }

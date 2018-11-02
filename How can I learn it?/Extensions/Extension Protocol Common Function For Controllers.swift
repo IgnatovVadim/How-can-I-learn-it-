@@ -103,10 +103,20 @@ extension commonFunctionsForControllers
 
 extension commonFunctionsForControllers
 {
-    func switchOnOrOffEditingObjects(in tableView: inout UITableView)
+    func switchOnOrOffEditingMode(in tableView: inout UITableView, with editButton: inout UIBarButtonItem)
     {
-        let isEditing = tableView.isEditing
+        let isEditing = !tableView.isEditing
         
-        tableView.setEditing(!isEditing, animated: true)
+        if (isEditing)
+        {
+            editButton.title = "Done"
+        }
+        else
+        {
+            editButton.title = "Edit"
+        }
+        
+        tableView.setEditing(isEditing, animated: true)
+        
     }
 }
