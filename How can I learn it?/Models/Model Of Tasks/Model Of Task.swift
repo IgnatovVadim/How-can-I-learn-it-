@@ -14,15 +14,16 @@ import CoreData
 class Tasks : ThingsForDevelopment
 {
     @NSManaged var wayOfLearn: WaysOfLearn?
+    @NSManaged var additionalInformation: String?
     
-    convenience init(name: String, number: Int64, entity: NSEntityDescription, context: NSManagedObjectContext, way: WaysOfLearn)
+    convenience init(name: String, additionalInformation: String?, number: Int64, entity: NSEntityDescription, context: NSManagedObjectContext, way: WaysOfLearn)
     {
         self.init(entity: entity, insertInto: context)
         
         self.name = name
         self.number = number
         self.wayOfLearn = way
-        
+        self.additionalInformation = additionalInformation!
     }
     
     static func fetchDataFromDataBase(way: WaysOfLearn) -> [ThingsForDevelopment]

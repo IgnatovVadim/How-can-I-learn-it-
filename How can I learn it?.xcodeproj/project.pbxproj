@@ -28,6 +28,7 @@
 		F4C7F9B1216BC34E008488FE /* Protocol Common Functions For Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B0216BC34E008488FE /* Protocol Common Functions For Controllers.swift */; };
 		F4C7F9B3216BC3AB008488FE /* Extension Protocol Common Function For Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B2216BC3AB008488FE /* Extension Protocol Common Function For Controllers.swift */; };
 		F4C7F9BA216DDB36008488FE /* Extension UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7F9B9216DDB36008488FE /* Extension UIViewController.swift */; };
+		F4CEDDDD218D9551006A5DC4 /* DetailOfSkillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CEDDDC218D9551006A5DC4 /* DetailOfSkillViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F4C7F9B0216BC34E008488FE /* Protocol Common Functions For Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Protocol Common Functions For Controllers.swift"; sourceTree = "<group>"; };
 		F4C7F9B2216BC3AB008488FE /* Extension Protocol Common Function For Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension Protocol Common Function For Controllers.swift"; sourceTree = "<group>"; };
 		F4C7F9B9216DDB36008488FE /* Extension UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIViewController.swift"; sourceTree = "<group>"; };
+		F4CEDDDC218D9551006A5DC4 /* DetailOfSkillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailOfSkillViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				F4A20B06215D169000AC50FC /* Screen Of Ways Of Learning View Controllers */,
 				F469731E218206A20084A77E /* Screen Of Action For Plans */,
 				F46E44C421889B1800240BAA /* Screen Of Tasks */,
+				F4CEDDDB218D941B006A5DC4 /* Screen With Detail Of Skill */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -222,6 +225,14 @@
 				F46972A62178C6F00084A77E /* Model Of Actions For Plans.swift */,
 			);
 			path = "Model Of Action For Plans";
+			sourceTree = "<group>";
+		};
+		F4CEDDDB218D941B006A5DC4 /* Screen With Detail Of Skill */ = {
+			isa = PBXGroup;
+			children = (
+				F4CEDDDC218D9551006A5DC4 /* DetailOfSkillViewController.swift */,
+			);
+			path = "Screen With Detail Of Skill";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 				F4697320218206E20084A77E /* ActionsForPlansTableViewController.swift in Sources */,
 				F4C7F9B1216BC34E008488FE /* Protocol Common Functions For Controllers.swift in Sources */,
 				F46E44C621889CFC00240BAA /* Model Of Task.swift in Sources */,
+				F4CEDDDD218D9551006A5DC4 /* DetailOfSkillViewController.swift in Sources */,
 				F4C7F9B3216BC3AB008488FE /* Extension Protocol Common Function For Controllers.swift in Sources */,
 				F4C4D7AC2147EBC200568749 /* SkillsTableViewCell.swift in Sources */,
 				F46972A72178C6F00084A77E /* Model Of Actions For Plans.swift in Sources */,

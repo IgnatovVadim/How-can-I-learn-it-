@@ -12,10 +12,10 @@ import CoreData
 
 extension commonFunctionsForControllers
 {
-    func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String = "", createOrEditObjectWithClosure: @escaping (String) -> Void) -> (UIAlertController)
+    func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String = "", createOrEditObjectWithClosure: ((String) -> Void)?) -> (UIAlertController)
     {
         
-        let uiAlertToCreateOrEditObject = UIAlertController(title: "\(titleOfAlert.0) \(titleOfAlert.1)" , message: nil, preferredStyle: .alert)
+        var uiAlertToCreateOrEditObject = UIAlertController(title: "\(titleOfAlert.0) \(titleOfAlert.1)" , message: nil, preferredStyle: .alert)
         
         uiAlertToCreateOrEditObject.addTextField { (textField) in
             textField.placeholder = "Enter New \(titleOfAlert.1) Name"
@@ -25,22 +25,35 @@ extension commonFunctionsForControllers
             textField.addConstraint(heightConstraint)
         }
         
-        let buttonOk = UIAlertAction(title: "OK", style: .default) { (_) in
-            guard let textField = uiAlertToCreateOrEditObject.textFields?.first, textField.text != "" else {return}
+        
+        if (titleOfAlert.1 != "Task")
+        {
+           let buttonOK = buttonOKIn(alert: uiAlertToCreateOrEditObject, with: createOrEditObjectWithClosure)
             
-            let newNameOfObject = textField.text!
-            
-            createOrEditObjectWithClosure(newNameOfObject)
-            
+            uiAlertToCreateOrEditObject.addAction(buttonOK)
         }
         
         let buttonCancel = UIAlertAction(title: "Cancel", style: .cancel)
         
-        uiAlertToCreateOrEditObject.addAction(buttonOk)
         uiAlertToCreateOrEditObject.addAction(buttonCancel)
         
         return (uiAlertToCreateOrEditObject)
     }
+    
+    func buttonOKIn(alert: UIAlertController, with createOrEditObjectWithClosure: ((String) -> Void)?) -> UIAlertAction
+    {
+        let buttonOK = UIAlertAction(title: "OK", style: .default) { (_) in
+            guard let textField = alert.textFields?.first, textField.text != "" else {return}
+            
+            let newNameOfObject = textField.text!
+            
+            createOrEditObjectWithClosure!(newNameOfObject)
+            
+        }
+        
+        return buttonOK
+    }
+    
 }
 
 extension commonFunctionsForControllers

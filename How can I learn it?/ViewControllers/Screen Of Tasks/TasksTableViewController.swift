@@ -38,21 +38,22 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
         let cell = longPressGesture.view as? TasksTableViewCell
         if let indexPath = tableView.indexPath(for: cell!)
         {
-            let task = tasks[indexPath.row]
+            let task = tasks[indexPath.row] as! Tasks
             
-            editTask(currentNameOfTask: task.name!, indexPath: indexPath)
+            editTask(currentNameOfTask: task.name!, currentAdditionalInformation: task.additionalInformation!, indexPath: indexPath)
             
         }
         
     }
     
-    func editTask(currentNameOfTask: String, indexPath: IndexPath)
+    func editTask(currentNameOfTask: String, currentAdditionalInformation: String = "", indexPath: IndexPath)
     {
-        let editTask = { (newNameOfObject: String) -> Void in
+        let editTask = { (newNameOfObject: String, newAdditionalInformation: String) -> Void in
             
-            let task = self.tasks[indexPath.row]
+            let task = self.tasks[indexPath.row] as! Tasks
             
             task.name = newNameOfObject
+            task.additionalInformation = newAdditionalInformation
             
             self.tableView.reloadData()
             
@@ -60,17 +61,49 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
             
         }
         
-        let alertForEditingTask = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, NameOfObjectInAlert.tasks.rawValue), currentNameOfObject: currentNameOfTask, createOrEditObjectWithClosure: editTask)
+        var alertForEditingTask = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.edit.rawValue, NameOfObjectInAlert.tasks.rawValue), currentNameOfObject: currentNameOfTask, createOrEditObjectWithClosure: nil)
+        
+        textFieldForAddingInformationIn(alert: &alertForEditingTask, with: currentAdditionalInformation)
+        
+        let buttonOk = buttonOkFor(alert: alertForEditingTask, createOrEditTaskWithClosure: editTask)
+        
+        alertForEditingTask.addAction(buttonOk)
         
         present(alertForEditingTask, animated: true, completion: nil)
         
     }
     
+    func textFieldForAddingInformationIn(alert: inout UIAlertController, with currentInformationAboutTask: String = "")
+    {
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Additional Information"
+            textField.text = currentInformationAboutTask
+            
+            let heightConstraint = NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30)
+            textField.addConstraint(heightConstraint)
+        }
+    }
+    
+    func buttonOkFor(alert: UIAlertController, createOrEditTaskWithClosure: @escaping (String, String) -> Void) -> UIAlertAction
+    {
+        let buttonOk = UIAlertAction(title: "OK", style: .default) { (_) in
+            guard let firstTextField = alert.textFields?.first, let secondTextField = alert.textFields?.last, firstTextField.text != "" else {return}
+            
+            let newNameOfObject = firstTextField.text!
+            let additionalInformation = secondTextField.text!
+            
+            createOrEditTaskWithClosure(newNameOfObject, additionalInformation)
+            
+        }
+        
+        return buttonOk
+    }
+    
     func createNewTask()
     {
-        let createNewTask = { (newNameOfObject: String) -> Void in
+        let createNewTask = { (newNameOfObject: String, additionalInformation: String) -> Void in
             
-            let task = Tasks(name: newNameOfObject, number: Int64(self.tasks.count + 1), entity: self.entity!, context: Tasks.context, way: self.way!)
+            let task = Tasks(name: newNameOfObject, additionalInformation: additionalInformation, number: Int64(self.tasks.count + 1), entity: self.entity!, context: Tasks.context, way: self.way!)
             
             self.tasks.append(task)
             
@@ -80,10 +113,15 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
             
         }
         
-        let alertForCreateTask = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, NameOfObjectInAlert.tasks.rawValue), createOrEditObjectWithClosure: createNewTask)
+        var alertForCreateTask = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, NameOfObjectInAlert.tasks.rawValue), createOrEditObjectWithClosure: nil)
+        
+        textFieldForAddingInformationIn(alert: &alertForCreateTask)
+
+        let buttonOK = buttonOkFor(alert: alertForCreateTask, createOrEditTaskWithClosure: createNewTask)
+        
+        alertForCreateTask.addAction(buttonOK)
         
         present(alertForCreateTask, animated: true, completion: nil)
-        
     }
     
     @IBAction func addNewTask(_ sender: UIBarButtonItem)
@@ -141,7 +179,7 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
         {
             cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TasksTableViewCell
             
-            let task = tasks[indexPath.row]
+            let task = tasks[indexPath.row] as! Tasks
             
             let longPressGestureForEeditingTask = UILongPressGestureRecognizer(target: self, action: #selector(editingTask(longPressGesture:)))
             longPressGestureForEeditingTask.minimumPressDuration = 0.7
@@ -152,7 +190,7 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
             cell.viewForCell.layer.shadowRadius = 4
             cell.viewForCell.layer.shadowOpacity = 0.5
             cell.nameOfTask.text = task.name!
-            cell.additionalInformation.text = task.name!
+            cell.additionalInformation.text = task.additionalInformation
         }
         
         return cell

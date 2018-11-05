@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pko-J9-4lw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pko-J9-4lw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yeP-ch-Jes">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="CellForNameOfTable" rowHeight="96" id="f1f-ac-dNd" customClass="SkillsTableViewCell" customModule="How_can_I_learn_it_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="96"/>
@@ -113,9 +113,10 @@
                                         <constraint firstAttribute="trailing" secondItem="gD2-wb-1IA" secondAttribute="trailing" id="xyA-sd-2Eg"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="1000" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="detailButton" destination="slK-Lo-bU9" id="VYN-CU-2FM"/>
                                     <outlet property="nameOfSkill" destination="y30-a1-dza" id="YGc-Kv-ldy"/>
                                     <outlet property="viewForCell" destination="gD2-wb-1IA" id="5XV-zD-zf1"/>
                                     <segue destination="tP6-vN-LMQ" kind="show" identifier="segueToWaysOfLearn" id="maM-sR-cMR"/>
@@ -128,6 +129,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="dGz-6H-oHD">
+                        <barButtonItem key="backBarButtonItem" title="Back To Skills" id="L2N-4r-SnF"/>
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="5xb-rY-WTO">
                             <connections>
                                 <action selector="editMode:" destination="WzW-AP-GTN" id="7a7-Il-8Ao"/>
@@ -145,22 +147,50 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k2-pQ-Wot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349.60000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="260" y="90"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Of Skill View Controller-->
         <scene sceneID="v4Y-nX-dtN">
             <objects>
-                <viewController id="D8i-cG-GAQ" sceneMemberID="viewController">
+                <viewController id="D8i-cG-GAQ" customClass="DetailOfSkillViewController" customModule="How_can_I_learn_it_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cgd-UB-OeH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdm-Gp-czo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="34.5"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sUe-Sm-yck">
+                                <rect key="frame" x="0.0" y="98.5" width="375" height="568.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mdm-Gp-czo" firstAttribute="trailing" secondItem="aRb-yM-10T" secondAttribute="trailing" id="5oT-Qn-Bcj"/>
+                            <constraint firstItem="aRb-yM-10T" firstAttribute="bottom" secondItem="sUe-Sm-yck" secondAttribute="bottom" id="8ym-PB-Chh"/>
+                            <constraint firstItem="sUe-Sm-yck" firstAttribute="leading" secondItem="aRb-yM-10T" secondAttribute="leading" id="9Ka-eD-Zcj"/>
+                            <constraint firstItem="Mdm-Gp-czo" firstAttribute="top" secondItem="aRb-yM-10T" secondAttribute="top" id="Eiu-gd-Y9f"/>
+                            <constraint firstItem="aRb-yM-10T" firstAttribute="trailing" secondItem="sUe-Sm-yck" secondAttribute="trailing" id="F6t-FP-3gb"/>
+                            <constraint firstItem="sUe-Sm-yck" firstAttribute="top" secondItem="Mdm-Gp-czo" secondAttribute="bottom" id="bpq-Hl-m24"/>
+                            <constraint firstItem="Mdm-Gp-czo" firstAttribute="leading" secondItem="aRb-yM-10T" secondAttribute="leading" id="hWb-zD-W2z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aRb-yM-10T"/>
                     </view>
+                    <connections>
+                        <outlet property="labelForNameOfView" destination="Mdm-Gp-czo" id="AIj-sW-hxX"/>
+                        <outlet property="textView" destination="sUe-Sm-yck" id="PvH-9C-SnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ML8-xN-mHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="861"/>
+            <point key="canvasLocation" x="260" y="824"/>
         </scene>
         <!--Ways Of Learning Table View Controller-->
         <scene sceneID="Gnk-mZ-kRv">
@@ -285,6 +315,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="TlD-zF-6qv">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="PhO-YT-vjp"/>
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="gww-Fy-f8u">
                             <connections>
                                 <action selector="editMode:" destination="VHZ-zf-Y6G" id="EJ3-9T-WzM"/>
@@ -346,23 +377,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-Z3-Xqs">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lineFromNotebook" translatesAutoresizingMaskIntoConstraints="NO" id="3W3-Z3-Xqs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tx0-Tn-ewJ">
                                             <rect key="frame" x="0.0" y="2" width="375" height="91.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGI-8J-XJQ">
-                                                    <rect key="frame" x="37" y="-4" width="333" height="90.5"/>
+                                                    <rect key="frame" x="5" y="23" width="365" height="66.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="lGI-8J-XJQ" secondAttribute="bottom" constant="5" id="IDd-IJ-J7Y"/>
-                                                <constraint firstItem="lGI-8J-XJQ" firstAttribute="leading" secondItem="tx0-Tn-ewJ" secondAttribute="leading" constant="37" id="bZK-cE-a9W"/>
-                                                <constraint firstAttribute="trailing" secondItem="lGI-8J-XJQ" secondAttribute="trailing" constant="5" id="ica-kQ-ELc"/>
-                                                <constraint firstItem="lGI-8J-XJQ" firstAttribute="top" secondItem="tx0-Tn-ewJ" secondAttribute="top" constant="-4" id="jVH-BU-JX0"/>
+                                                <constraint firstItem="lGI-8J-XJQ" firstAttribute="top" secondItem="tx0-Tn-ewJ" secondAttribute="top" constant="23" id="3jS-wr-Yyk"/>
+                                                <constraint firstAttribute="trailing" secondItem="lGI-8J-XJQ" secondAttribute="trailing" constant="5" id="FU6-ME-oTy"/>
+                                                <constraint firstItem="lGI-8J-XJQ" firstAttribute="leading" secondItem="tx0-Tn-ewJ" secondAttribute="leading" constant="5" id="Kqo-bo-p8D"/>
+                                                <constraint firstAttribute="bottom" secondItem="lGI-8J-XJQ" secondAttribute="bottom" constant="2" id="hbt-Jp-KwL"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -427,7 +458,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-I2-8Hs">
                                             <rect key="frame" x="16" y="11" width="343" height="74"/>
-                                            <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="30"/>
+                                            <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="25"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -566,7 +597,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWh-XI-GDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="90"/>
+            <point key="canvasLocation" x="1054" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2OQ-XM-19G">
@@ -588,12 +619,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLe-oj-QXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-342" y="90"/>
+            <point key="canvasLocation" x="-458" y="90"/>
         </scene>
     </scenes>
     <resources>
         <image name="detailDisclosure" width="64" height="64"/>
         <image name="indicatorDisclosure" width="36" height="64"/>
-        <image name="note" width="1031" height="52"/>
+        <image name="lineFromNotebook" width="930" height="52"/>
     </resources>
 </document>

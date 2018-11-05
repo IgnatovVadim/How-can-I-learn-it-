@@ -12,6 +12,7 @@ class SkillsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameOfSkill: UILabel!
     @IBOutlet weak var viewForCell: UIView!
+    @IBOutlet weak var detailButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

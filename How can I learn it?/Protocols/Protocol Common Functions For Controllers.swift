@@ -12,7 +12,7 @@ import CoreData
 
 protocol commonFunctionsForControllers
 {
-    func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String, createOrEditObjectWithClosure: @escaping (String) -> Void) -> (UIAlertController)
+    func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String, createOrEditObjectWithClosure: ((String) -> Void)?) -> (UIAlertController)
     
     func sorting(massive: inout [ThingsForDevelopment])
     

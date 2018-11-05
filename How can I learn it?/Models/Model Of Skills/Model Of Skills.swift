@@ -13,5 +13,6 @@ import CoreData
 @objc(Skills)
 class Skills : ThingsForDevelopment
 {
+    @NSManaged var detail: String?
     @NSManaged var waysOfLearn: NSSet?
 }

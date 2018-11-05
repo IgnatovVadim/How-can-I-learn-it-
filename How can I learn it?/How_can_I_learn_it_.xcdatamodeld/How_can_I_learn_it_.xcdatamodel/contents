@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G3025" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ActionsForPlans" representedClassName="ActionsForPlans" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="skill" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Skills" inverseName="actionForPlan" inverseEntity="Skills" syncable="YES"/>
     </entity>
     <entity name="Skills" representedClassName="Skills" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="actionForPlan" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActionsForPlans" inverseName="skill" inverseEntity="ActionsForPlans" syncable="YES"/>
         <relationship name="waysOfLearn" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WaysOfLearn" inverseName="skill" inverseEntity="WaysOfLearn" syncable="YES"/>
     </entity>
     <entity name="Tasks" representedClassName="Tasks" syncable="YES">
+        <attribute name="additionalInformation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="wayOfLearn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WaysOfLearn" inverseName="tasks" inverseEntity="WaysOfLearn" syncable="YES"/>
@@ -24,8 +26,8 @@
     </entity>
     <elements>
         <element name="ActionsForPlans" positionX="-272.39453125" positionY="-323.2734375" width="128" height="90"/>
-        <element name="Skills" positionX="-443" positionY="-189" width="128" height="105"/>
-        <element name="Tasks" positionX="-74.48046875" positionY="-146.140625" width="128" height="90"/>
+        <element name="Skills" positionX="-443" positionY="-189" width="128" height="120"/>
+        <element name="Tasks" positionX="-74.48046875" positionY="-146.140625" width="128" height="105"/>
         <element name="WaysOfLearn" positionX="-247.171875" positionY="-173.98046875" width="128" height="105"/>
     </elements>
 </model>

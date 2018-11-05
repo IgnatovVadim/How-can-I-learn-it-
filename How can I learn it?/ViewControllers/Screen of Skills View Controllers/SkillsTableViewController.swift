@@ -88,6 +88,9 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        let image = UIImage(named: "firstScreen.jpg")
+        let imageView = UIImageView(image: image)
+        tableView.backgroundView = imageView
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,9 +129,13 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
             longPressGestureForEditingNameOfSkill.minimumPressDuration = 0.7
             cell.addGestureRecognizer(longPressGestureForEditingNameOfSkill)
             cell.nameOfSkill.text! = "\(skill.name!)"
+            cell.detailButton.tag = indexPath.row
             cell.viewForCell.layer.borderColor = UIColor.black.cgColor
             cell.viewForCell.layer.borderWidth = 1
             cell.viewForCell.layer.cornerRadius = 5
+            cell.detailButton.layer.shadowColor = UIColor.black.cgColor
+            cell.detailButton.layer.shadowRadius = 5
+            cell.detailButton.layer.shadowOpacity = 5
             
         }
         
@@ -168,7 +175,17 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "segueToDetailOfSkill"
+        {
+            let destination = segue.destination as! DetailOfSkillViewController
+            let button = sender as? UIButton
+            let skill = skills[(button?.tag)!] as! Skills
+            
+            destination.skill = skill
+        }
+        
         if let navigationController = segue.destination as? UINavigationController
         {
             if let destination = navigationController.topViewController as? WaysOfLearningTableViewController
