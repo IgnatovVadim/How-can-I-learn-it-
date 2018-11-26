@@ -13,6 +13,7 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
     
     @IBOutlet weak var editButtonLabel: UIBarButtonItem!
     
+    var copyBuffer: String?
     var actions: [ThingsForDevelopment] = []
     var skill: Skills?
     let entity = NSEntityDescription.entity(forEntityName: EntityName.actionsForPlans.rawValue, in: ActionsForPlans.context)
@@ -36,10 +37,10 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
     }
     
     @IBAction func addNewActionForPlan(_ sender: UIBarButtonItem) {
-        createNewActionForPlan()
+        createNewActionForPlanWith()
     }
     
-    func createNewActionForPlan()
+    func createNewActionForPlanWith(name: String = "")
     {
         let createNewAction = { (newNameOfObject: String) -> Void in
             
@@ -51,7 +52,7 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
             self.saveData()
         }
         
-        let alertForCreateAction = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, NameOfObjectInAlert.actionsForPlans.rawValue), createOrEditObjectWithClosure: createNewAction)
+        let alertForCreateAction = alertForAddingAndEditingtObjectWith(titleOfAlert: (CreateOrEditObjectInAlert.create.rawValue, NameOfObjectInAlert.actionsForPlans.rawValue), currentNameOfObject: name, createOrEditObjectWithClosure: createNewAction)
         
         present(alertForCreateAction, animated: true, completion: nil)
         
@@ -64,7 +65,7 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
         let swipeGestureRecognizerToPreviousScreen = UISwipeGestureRecognizer(target: self, action: #selector(backToPreviousScreen))
         swipeGestureRecognizerToPreviousScreen.direction = .right
         tableView.gestureRecognizers?.append(swipeGestureRecognizerToPreviousScreen)
-        
+        tableView.separatorColor = #colorLiteral(red: 0.4235294118, green: 0.3529411765, blue: 0.3960784314, alpha: 1)
     }
     
     // MARK: - Table view data source
@@ -84,16 +85,51 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
         return 1
     }
     
-    @objc func editingAction(longPressGesture: UILongPressGestureRecognizer)
+    func editingAction(longPressGesture: UILongPressGestureRecognizer)
+    {
+        let indexPath = getIndexPath(for: longPressGesture)
+        let action = actions[indexPath.row]
+        editAction(currentNameOfAction: action.name!, indexPath: indexPath)
+    }
+    
+    func getIndexPath(for longPressGesture: UILongPressGestureRecognizer) -> IndexPath
     {
         tableView.setEditing(false, animated: true)
         
         let cell = longPressGesture.view as! ActionsForPlansTableViewCell
-        if let indexPath = tableView.indexPath(for: cell)
-        {
-            let action = actions[indexPath.row]
-            editAction(currentNameOfAction: action.name!, indexPath: indexPath)
+        let indexPath = tableView.indexPath(for: cell)
+        
+        return indexPath!
+    }
+
+    func copyAction(longPressGesture: UILongPressGestureRecognizer)
+    {
+        let indexPath = getIndexPath(for: longPressGesture)
+        let action = actions[indexPath.row]
+        copyBuffer = action.name!
+        createNewActionForPlanWith(name: copyBuffer!)
+    }
+    
+    @objc func alertForCopyOrEditAction(longPressGesture: UILongPressGestureRecognizer)
+    {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let editButton = UIAlertAction(title: "Edit The Action", style: .default) { (_) in
+            self.editingAction(longPressGesture: longPressGesture)
         }
+        
+        let copyButton = UIAlertAction(title: "Copy The Action", style: .default) { (_) in
+            self.copyAction(longPressGesture: longPressGesture)
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(editButton)
+        alert.addAction(copyButton)
+        alert.addAction(cancelButton)
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
     func editAction(currentNameOfAction: String, indexPath: IndexPath?)
@@ -125,7 +161,7 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
             
             let action = actions[indexPath.row]
             
-            let longPressGestureForEditingAction = UILongPressGestureRecognizer(target: self, action: #selector(editingAction(longPressGesture:)))
+            let longPressGestureForEditingAction = UILongPressGestureRecognizer(target: self, action: #selector(alertForCopyOrEditAction(longPressGesture:)))
             longPressGestureForEditingAction.minimumPressDuration = 0.7
             cell.addGestureRecognizer(longPressGestureForEditingAction)
             cell.nameOfAction.text = "\(indexPath.row + 1)) \((action.name)!)"

@@ -122,7 +122,7 @@ class WaysOfLearningTableViewController: UITableViewController, commonFunctionsF
         if (indexPath.section == 0)
         {
             cell = tableView.dequeueReusableCell(withIdentifier: "StaticCellForNameOfTable", for: indexPath) as! WaysOfLearningTableViewCell
-            cell.nameOfWay.text = "Ways To Learn The Skill \n'\((skill?.name)!)'"
+            cell.nameOfWay.text = "Ways To Do The Skill \n'\((skill?.name)!)'"
         }
         else if (indexPath.section == 1)
         {
