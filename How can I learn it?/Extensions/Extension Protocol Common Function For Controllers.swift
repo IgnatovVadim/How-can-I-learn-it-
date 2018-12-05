@@ -58,19 +58,50 @@ extension commonFunctionsForControllers
 
 extension commonFunctionsForControllers
 {
-    func sorting(massive: inout [ThingsForDevelopment])
+    func mergeSort(massive: inout [ThingsForDevelopment], start: Int, finish: Int)
     {
-        for i in 0..<massive.count
+        if (start < finish)
         {
-            for j in i+1..<massive.count
+            var center = (start + finish) / 2
+            mergeSort(massive: &massive, start: start, finish: center)
+            mergeSort(massive: &massive, start: center + 1, finish: finish)
+            merge(massive: &massive, start: start, center: center, finish: finish)
+        }
+    }
+    
+    func merge(massive: inout [ThingsForDevelopment], start: Int, center: Int, finish: Int)
+    {
+        let leftSide = massive[start...center]
+        let rightSide = massive[(center + 1)...finish]
+        
+        var i = start
+        var j = center + 1
+        
+        for index in start...finish
+        {
+            if i > center
             {
-                if (massive[i].number > massive[j].number)
-                {
-                    massive.swapAt(i, j)
-                }
+                massive[index] = rightSide[j]
+                j += 1
+            }
+            else if j > finish
+            {
+                massive[index] = leftSide[i]
+                i += 1
+            }
+            else if massive[i].number <= massive[j].number
+            {
+                massive[index] = leftSide[i]
+                i += 1
+            }
+            else
+            {
+                massive[index] = rightSide[j]
+                j += 1
             }
         }
     }
+    
 }
 
 extension commonFunctionsForControllers

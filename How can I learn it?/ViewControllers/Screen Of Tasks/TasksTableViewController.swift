@@ -22,7 +22,7 @@ class TasksTableViewController: UITableViewController, commonFunctionsForControl
         
         tasks = Tasks.fetchDataFromDataBase(way: way!)
         
-        sorting(massive: &tasks)
+        mergeSort(massive: &tasks, start: 0, finish: tasks.count - 1)
         
     }
     

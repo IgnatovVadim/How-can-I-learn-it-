@@ -23,7 +23,7 @@ class ActionsForPlansTableViewController: UITableViewController , commonFunction
         
         actions = ActionsForPlans.fetchDataFromDataBase(entity: EntityName.actionsForPlans.rawValue, skill: skill!)
         
-        sorting(massive: &actions)
+        mergeSort(massive: &actions, start: 0, finish: actions.count - 1)
     }
     
     @IBAction func editMode(_ sender: UIBarButtonItem) {

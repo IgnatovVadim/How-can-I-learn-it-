@@ -22,7 +22,7 @@ class WaysOfLearningTableViewController: UITableViewController, commonFunctionsF
         
         ways = WaysOfLearn.fetchDataFromDataBase(entity: EntityName.waysOfLearn.rawValue, skill: skill!)
         
-        sorting(massive: &ways)
+        mergeSort(massive: &ways, start: 0, finish: ways.count - 1)
     }
     
     @objc func backToScreenOfSkills()

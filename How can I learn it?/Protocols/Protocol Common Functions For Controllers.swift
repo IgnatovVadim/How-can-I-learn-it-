@@ -14,7 +14,7 @@ protocol commonFunctionsForControllers
 {
     func alertForAddingAndEditingtObjectWith(titleOfAlert: (String, String), currentNameOfObject: String, createOrEditObjectWithClosure: ((String) -> Void)?) -> (UIAlertController)
     
-    func sorting(massive: inout [ThingsForDevelopment])
+    func mergeSort(massive: inout [ThingsForDevelopment], start: Int, finish: Int)
     
     func reorderObjects(in massiveOfObjects: inout [ThingsForDevelopment], fromRow: Int, toRow: Int, isDelete: Bool)
     

@@ -22,7 +22,7 @@ class SkillsTableViewController: UITableViewController, commonFunctionsForContro
         
         skills = Skills.fetchDataFromDatabase(entity: EntityName.skills.rawValue)
         
-        sorting(massive: &skills)
+        mergeSort(massive: &skills, start: 0, finish: skills.count - 1)
     }
     
     @IBAction func editMode(_ sender: UIBarButtonItem)
